@@ -18,6 +18,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
             quantity
         }
         dispatch(addShoppingCartItem(newProductSelected))
+        setQuantity(1) // restablecer el valor a 1 despues de agregarlo al carrito
     }
 
     return (
