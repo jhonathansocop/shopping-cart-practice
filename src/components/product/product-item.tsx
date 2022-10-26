@@ -21,6 +21,12 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         setQuantity(1) // restablecer el valor a 1 despues de agregarlo al carrito
     }
 
+    const quantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (parseInt(e.target.value) > 0) {
+            setQuantity(parseInt(e.target.value))
+        }        
+    }
+    
     return (
         <Grid item xs={6} sm={4} md={3} >
             <Card sx={{ maxWidth: 345, m: 1, p: 2 }} variant="outlined" >
@@ -54,7 +60,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
                                 type="number"
                                 size="small"                                
                                 value={quantity}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuantity(parseInt(e.target.value))}
+                                onChange={quantityChange}
                             />
                         </Grid>
                         <Grid item md={4} sx={{ p: 1 }}>
